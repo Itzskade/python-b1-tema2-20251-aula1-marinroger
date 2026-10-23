@@ -48,9 +48,16 @@ Exemple:
 
 
 def triangle_area_calculate(
-    base, height):
+        base, height):
     # Write here your code
-    pass
+    try:
+        if base <= 0 or height <= 0:
+            raise ValueError("La base y la altura deben ser positivas")
+    except (ValueError, TypeError) as error:
+        raise ValueError(
+            "La base y la altura deben ser números"
+        ) from error
+    return base * height / 2
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta
